@@ -28,7 +28,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B verify sonar:sonar -Dsonar.projectKey=alinaghania -Dsonar.organization=alinaghania -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  --file "./simple-api/pom.xml"
+      run: mvn -B verify sonar:sonar -Dsonar.projectKey=alinaghania -Dsonar.organization=alinaghania -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} --file ./simple-api/pom.xml
+
 
       
 
