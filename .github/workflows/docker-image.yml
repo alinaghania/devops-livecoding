@@ -24,23 +24,24 @@ jobs:
       with:
         context: ./simple-api
         file: ./simple-api/Dockerfile
-        push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/simple-api:latest
+        push: ${{ github.ref == 'refs/heads/main' }}
 
     - name: Build and push database Docker image
       uses: docker/build-push-action@v3
       with:
         context: ./database
         file: ./database/Dockerfile
-        push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/database:latest
+        push: ${{ github.ref == 'refs/heads/main' }}
 
     - name: Build and push http-server Docker image
       uses: docker/build-push-action@v3
       with:
         context: ./http-server
         file: ./http-server/Dockerfile
-        push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/http-server:latest
+        push: ${{ github.ref == 'refs/heads/main' }}
+
 
        
