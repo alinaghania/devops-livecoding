@@ -31,3 +31,13 @@ volumes:
 
 networks:
   my-network:
+
+
+backend:
+    build: ./frontend
+    container_name: myfrontend
+    networks:
+      - my-network
+    depends_on:
+      - database
+  
